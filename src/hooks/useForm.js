@@ -12,7 +12,7 @@ export const useForm = (data, callback) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    callback(values);
+    callback();
   };
 
   return {

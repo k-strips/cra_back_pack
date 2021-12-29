@@ -1,5 +1,5 @@
 import React from "react";
-// import { Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Routes from "./routes";
@@ -9,11 +9,11 @@ import { client } from "./graphql/client";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Router> */}
-    <ApolloProvider client={client}>
-      <Routes />
-    </ApolloProvider>
-    {/* </Router> */}
+    <Router>
+      <ApolloProvider client={client}>
+        <Routes />
+      </ApolloProvider>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

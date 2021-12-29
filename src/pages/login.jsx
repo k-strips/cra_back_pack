@@ -23,7 +23,7 @@ const Login = () => {
 
   const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER);
   const { handleChange, handleSubmit, values } = useForm(initialState, () =>
-    loginUser()
+    console.log("hi")
   );
 
   return (
@@ -37,14 +37,16 @@ const Login = () => {
           <p>
             keep all your notes in one place, log in from anywhere on any
             device. <br />
-            do you need an account? click here to{" "}
-            <span onClick={() => setIsSignup(true)}>
-              <small>Signup</small>
+            {isSignup
+              ? `do you need an account? click here to`
+              : `already have an account?`}{" "}
+            <span onClick={() => setIsSignup(!isSignup)}>
+              <small>{isSignup ? `signup` : `login`}</small>
             </span>
           </p>
         </div>
         <div>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             {isSignup && (
               <>
                 <Input
