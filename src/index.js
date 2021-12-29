@@ -2,7 +2,7 @@ import React from "react";
 // import { Router } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import Routes from "./routes";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./graphql/client";
@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <Router> */}
     <ApolloProvider client={client}>
-      <App />
+      <Routes />
     </ApolloProvider>
     {/* </Router> */}
   </React.StrictMode>,

@@ -2,7 +2,7 @@ import React from "react";
 
 const AppLayout = ({ children }) => {
   return (
-    <main>
+    <main className="container">
       <nav>
         <ul>
           <li>all notes</li>
