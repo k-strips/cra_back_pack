@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import { Login, Pages, Notes } from "../pages";
 
 // local components import
-import PrivateOutlet from "./privateRoutes";
+import PrivateOutlet from "./privateOutlet";
 
 function Routes() {
   return (
@@ -10,7 +10,7 @@ function Routes() {
       <Route path="/" element={<Login />} />
       <Route element={<PrivateOutlet />}>
         <Route path="pages" component={<Pages />} />
-        <Route path="notes" component={<Notes />} />
+        {/* <Route path="notes" component={<Notes />} /> */}
         {/* <Route path="8" component={<NoMatch />}/> */}
       </Route>
     </Routes>
