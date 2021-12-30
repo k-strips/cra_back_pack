@@ -1,20 +1,20 @@
-import { Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Login, Pages, Notes } from "../pages";
 
 // local components import
 import PrivateOutlet from "./privateOutlet";
 
-function Routes() {
+function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route element={<PrivateOutlet />}>
-        <Route path="pages" component={<Pages />} />
-        {/* <Route path="notes" component={<Notes />} /> */}
-        {/* <Route path="8" component={<NoMatch />}/> */}
+        <Route path="pages" element={<Pages />} />
+        <Route path="notes" element={<Notes />} />
+        {/* <Route path="8" element={<NoMatch />}/> */}
       </Route>
     </Routes>
   );
 }
 
-export default Routes;
+export default AppRoutes;
