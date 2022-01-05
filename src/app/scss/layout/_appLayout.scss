@@ -1,0 +1,43 @@
+@import "../base";
+
+.main-nav {
+  grid-area: nav;
+}
+
+.main-content {
+  grid-area: content;
+}
+
+.main-settings {
+  grid-area: settings;
+}
+
+.main-footer {
+  grid-area: footer;
+}
+
+.wrapper {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas: "nav" "content" "settings" "footer";
+}
+
+// tablets
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: "nav content content" "settings content content" "footer footer footer";
+  }
+}
+
+// desktops and laptops
+@media only screen and (min-width: 992px) {
+  .wrapper {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: "nav content settings" "footer footer footer";
+  }
+}

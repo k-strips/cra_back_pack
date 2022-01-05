@@ -6,8 +6,9 @@ export const useForm = (data, callback) => {
     e.persist();
     const { checked, name, type, value } = e.target;
     type === "checkbox"
-      ? setValues({ ...data, [name]: checked })
-      : setValues({ ...data, [name]: value });
+      ? setValues({ ...values, [name]: checked })
+      : setValues({ ...values, [name]: value });
+    console.log(values);
   };
 
   const handleSubmit = (e) => {

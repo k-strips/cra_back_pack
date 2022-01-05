@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = ({ children, ...rest }) => {
-  return <button>{children}</button>;
+  return <button {...rest}>{children}</button>;
 };
 
 export default Button;

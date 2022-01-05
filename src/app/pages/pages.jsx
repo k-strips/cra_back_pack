@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 // local components import
 import { PageThumbnail } from "../components";
-import { AppLayout } from "../layout";
 
 const pagesData = [
   { title: "first page", body: "first page" },
@@ -12,13 +12,12 @@ const pagesData = [
 const Pages = () => {
   const [pages, setPages] = useState(pagesData);
   return (
-    <AppLayout>
-      <div className="page">
-        {pages.map((p, i) => (
-          <PageThumbnail page={p} key={i} />
-        ))}
-      </div>
-    </AppLayout>
+    <div className="page">
+      {pages.map((p, i) => (
+        <PageThumbnail page={p} key={i} />
+      ))}
+      <Outlet />
+    </div>
   );
 };
 

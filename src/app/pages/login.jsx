@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // graphql imports
-import { LOGIN_USER } from "../graphql/mutation";
+import { LOGIN_USER, SIGNUP_USER } from "../graphql/mutation";
 import { useMutation } from "@apollo/client";
 
 // local components import
@@ -20,16 +21,52 @@ let initialState = {
 
 const Login = () => {
   const [isSignup, setIsSignup] = useState(false);
+  const navigate = useNavigate();
 
-  const [loginUser, { data, loading, error }] = useMutation(LOGIN_USER);
-  const { handleChange, handleSubmit, values } = useForm(initialState, () =>
-    console.log("hi")
+  const [
+    loginUser,
+    {
+      data: loggedInUserData,
+      loading: userLoginLoading,
+      error: userLoginError,
+    },
+  ] = useMutation(LOGIN_USER);
+
+  const [
+    signupUser,
+    {
+      data: SignedUpUserData,
+      loading: userSignupLoading,
+      error: userSignupError,
+    },
+  ] = useMutation(SIGNUP_USER);
+
+  const SubmitHandler = () => {
+    if (!isSignup) {
+      loginUser({
+        input: {
+          email: values.email,
+          password: values.password,
+        },
+      });
+    } else {
+      signupUser({
+        input: { ...values.confirmPassword, values },
+      });
+    }
+  };
+
+  const { handleChange, handleSubmit, values } = useForm(
+    initialState,
+    SubmitHandler
   );
 
+  console.log(loggedInUserData);
+
   return (
-    <div className="container">
-      <div className="card">
-        <div className="card">
+    <main className="login--container">
+      <div className="login--card">
+        <section>
           <hgroup>
             <h3>back pack</h3>
             <h5>back pack... your back won't hurt</h5>
@@ -37,15 +74,20 @@ const Login = () => {
           <p>
             keep all your notes in one place, log in from anywhere on any
             device. <br />
-            {isSignup
+            {!isSignup
               ? `do you need an account? click here to`
               : `already have an account?`}{" "}
-            <span onClick={() => setIsSignup(!isSignup)}>
-              <small>{isSignup ? `signup` : `login`}</small>
+            <span
+              onClick={() => {
+                navigate("/signup");
+                setIsSignup(!isSignup);
+              }}
+            >
+              <small>{!isSignup ? `signup` : `login`}</small>
             </span>
           </p>
-        </div>
-        <div>
+        </section>
+        <section>
           <Form onSubmit={handleSubmit}>
             {isSignup && (
               <>
@@ -95,11 +137,13 @@ const Login = () => {
                 onChange={handleChange}
               />
             )}
-            <Button>{isSignup ? "Signup" : "Login"}</Button>
+            <Button className="button--success">
+              {isSignup ? "Signup" : "Login"}
+            </Button>
           </Form>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import ReactDOM from "react-dom";
-import "./index.css";
-import AppRoutes from "./routes";
+import AppRoutes from "./app/routes";
+import "./app/scss/main.scss";
 import reportWebVitals from "./reportWebVitals";
 import { ApolloProvider } from "@apollo/client";
-import { client } from "./graphql/client";
+import { client } from "./app/graphql/client";
 
 ReactDOM.render(
   <React.StrictMode>

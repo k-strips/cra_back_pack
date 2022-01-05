@@ -1,0 +1,75 @@
+@import "./base";
+
+%button {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  color: $white;
+  padding: 1rem 2rem;
+  transition-duration: 0.4s;
+  text: {
+    align: center;
+    decoration: none;
+  }
+}
+
+%card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  &-rounded {
+    border: {
+      radius: 5px;
+    }
+  }
+}
+
+.button {
+  &--success {
+    @extend %button;
+    background-color: $green;
+    &:hover {
+      background-color: $deepGreen;
+    }
+  }
+  &--danger {
+    @extend %button;
+    background-color: $red;
+  }
+  &--warning {
+    @extend %button;
+    background-color: $orange;
+  }
+}
+
+.login--card {
+  @extend %card-rounded;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2rem;
+  background-color: $white;
+}
+
+.footer {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+
+// tablets
+@media only screen and (min-width: 768px) {
+}
+
+// desktops and laptops
+@media only screen and (min-width: 992px) {
+  .footer {
+    flex-flow: row wrap;
+  }
+
+  .login--card {
+    flex-flow: row nowrap;
+    & > section {
+      margin: 0.5rem;
+      width: 50%;
+      height: inherit;
+    }
+  }
+}

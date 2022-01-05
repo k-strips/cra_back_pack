@@ -17,6 +17,21 @@ export const GET_USER = gql`
   }
 `;
 
+export const LIST_USERS = gql`
+  # Write your query or mutation here
+  query Query {
+    listUsers {
+      items {
+        id
+        firstName
+        lastName
+        userName
+      }
+      totalCount
+    }
+  }
+`;
+
 export const GET_NOTE = gql`
   query GetNote($note: GetNoteInput) {
     getNote(note: $note) {
@@ -30,8 +45,10 @@ export const GET_NOTE = gql`
 `;
 
 export const LIST_NOTES = gql`
-  query ListNotes($filter: TableNoteFilterInput, $limit: Int, $skip: Int) {
-    listNotes(filter: $filter, limit: $limit, skip: $skip) {
+  query ListNotes {
+    # ($filter: TableNoteFilterInput, $limit: Int, $skip: Int)
+    listNotes {
+      # (filter: $filter, limit: $limit, skip: $skip)
       items {
         title
         created
