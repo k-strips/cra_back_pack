@@ -48,6 +48,17 @@
   background-color: $white;
 }
 
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  gap: 1.25rem;
+  margin: 2rem;
+}
+.note-thumbnail {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
 .footer {
   display: flex;
   flex-flow: column nowrap;
@@ -60,16 +71,15 @@
 
 // desktops and laptops
 @media only screen and (min-width: 992px) {
+  .login--card {
+    flex-flow: row nowrap;
+    height: 50vh;
+  }
   .footer {
     flex-flow: row wrap;
   }
 
-  .login--card {
-    flex-flow: row nowrap;
-    & > section {
-      margin: 0.5rem;
-      width: 50%;
-      height: inherit;
-    }
+  .note-thumbnail {
+    width: 32%;
   }
 }

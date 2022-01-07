@@ -1,4 +1,22 @@
 @import "./base";
 @import "./components";
-@import "./layout/appLayout";
 @import "./pages";
+
+// base
+@import "base/reset";
+@import "base/typography";
+
+// layout
+@import "./layout/appLayout";
+@import "./layout/unauthLayout";
+
+// pages
+@import "pages/note";
+@import "pages/notes";
+@import "pages/page";
+@import "pages/pages";
+
+// utils
+@import "utils/functions";
+@import "utils/variables";
+@import "utils/mixins";

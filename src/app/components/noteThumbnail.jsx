@@ -1,9 +1,12 @@
 import React from "react";
 
-const NoteThumbnail = ({ className, note }) => {
+const NoteThumbnail = ({ note }) => {
   return (
-    <div className={className}>
-      <h5>{note.title}</h5>
+    <div className="note-thumbnail">
+      <hgroup>
+        <h5>{note.title}</h5>
+      </hgroup>
+      <p>{note.updatedAt}</p>
     </div>
   );
 };

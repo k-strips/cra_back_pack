@@ -15,7 +15,11 @@ let notesData = [
 ];
 
 const Notes = () => {
-  const { data: notesData, loading, error } = useQuery(LIST_NOTES);
+  const {
+    data: notesData,
+    loading: LoadingNotes,
+    error: NotesError,
+  } = useQuery(LIST_NOTES);
 
   console.log(notesData?.listNotes);
   const [notes, setNotes] = useState(notesData);

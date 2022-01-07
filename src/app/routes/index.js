@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 // local components import
 import { Login, Page, Pages, Note, Notes, NoMatch } from "../pages";
-import { AppLayout } from "../layout";
+import { AppLayout, UnauthLayout } from "../layout";
 
 let routes = [
   {
@@ -20,8 +20,10 @@ let routes = [
 function AppRoutes() {
   return (
     <Routes>
-      <Route index element={<Login />} />
-      <Route path="signup" element={<Login />} />
+      <Route element={<UnauthLayout />}>
+        <Route index element={<Login />} />
+        <Route path="signup" element={<Login />} />
+      </Route>
       <Route element={<AppLayout />}>
         {routes.map((m, i) => (
           <Route key={i} path={m.path} element={m.element}>
