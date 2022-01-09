@@ -1,10 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const PageThumbnail = ({ className, page }) => {
+// local components import
+import { Button } from ".";
+
+const PageThumbnail = ({ page }) => {
+  const navigate = useNavigate();
   return (
-    <div className={className}>
-      <h2>{page.title}</h2>
-      <p>{page.body}</p>
+    <div className="page--thumbnail">
+      <h5 className="page--title">{page.title}</h5>
+      <p className="page--content">{page.content}</p>
+      <div className="page--footer">
+        <time datetime={`${page.createdAt}`}>{page.createdAt}</time>
+        <Button onClick={() => navigate(`${page.id}`)}>open</Button>
+      </div>
     </div>
   );
 };

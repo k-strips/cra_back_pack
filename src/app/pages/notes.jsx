@@ -9,26 +9,28 @@ import { LIST_NOTES } from "../graphql/query";
 import { NoteThumbnail } from "../components";
 
 let notesData = [
-  { title: "my first note", body: "my first" },
-  { title: "my second note", body: "my second" },
-  { title: "my third note", body: "my third" },
+  { id: 1, title: "my first note", createdAt: "12-12-2021" },
+  { id: 2, title: "my second note", createdAt: "12-12-2021" },
+  { id: 3, title: "my third note", createdAt: "12-12-2021" },
+  { id: 4, title: "some notes", createdAt: "12-12-2021" },
+  { id: 5, title: "more notes", createdAt: "12-12-2021" },
+  { id: 6, title: "last note", createdAt: "12-12-2021" },
 ];
 
 const Notes = () => {
-  const {
-    data: notesData,
-    loading: LoadingNotes,
-    error: NotesError,
-  } = useQuery(LIST_NOTES);
+  // const {
+  //   data: notesData,
+  //   loading: LoadingNotes,
+  //   error: NotesError,
+  // } = useQuery(LIST_NOTES);
 
-  console.log(notesData?.listNotes);
+  // console.log(notesData?.listNotes);
   const [notes, setNotes] = useState(notesData);
   return (
-    <div className="main-content">
+    <div className="notes-content">
       {notes?.map((n, i) => (
         <NoteThumbnail note={n} key={i} />
       ))}
-      <Outlet />
     </div>
   );
 };

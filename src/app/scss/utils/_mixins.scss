@@ -1,0 +1,24 @@
+@mixin widthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// flex container mixin
+@mixin flexContainer($flexFlow) {
+  display: flex;
+  flex-flow: $flexFlow;
+}
+
+// tablet view
+@mixin tabletView {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+// desktop view
+@mixin desktopView {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}

@@ -8,12 +8,12 @@ let routes = [
   {
     path: "notes",
     element: <Notes />,
-    nested: { path: "note", element: <Note /> },
+    nested: { path: ":noteId", element: <Note /> },
   },
   {
     path: "pages",
     element: <Pages />,
-    nested: { path: "page", element: <Page /> },
+    nested: { path: ":pageId", element: <Page /> },
   },
 ];
 
@@ -23,6 +23,7 @@ function AppRoutes() {
       <Route element={<UnauthLayout />}>
         <Route index element={<Login />} />
         <Route path="signup" element={<Login />} />
+        <Route path="*" element={<NoMatch />} />
       </Route>
       <Route element={<AppLayout />}>
         {routes.map((m, i) => (
@@ -31,7 +32,6 @@ function AppRoutes() {
           </Route>
         ))}
       </Route>
-      <Route path="*" element={<NoMatch />} />
     </Routes>
   );
 }

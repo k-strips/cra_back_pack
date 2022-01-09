@@ -6,8 +6,10 @@ import PageThumbnail from "./pageThumbnail";
 import Footer from "./footer";
 import Navigation from "./navigation";
 import Settings from "./settings";
+import Card from "./card";
 
 export {
+  Card,
   Form,
   Input,
   TextArea,

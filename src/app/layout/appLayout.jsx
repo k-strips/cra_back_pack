@@ -7,7 +7,7 @@ import { Footer, Navigation, Settings } from "../components";
 const AppLayout = () => {
   return (
     <div className="wrapper">
-      <Navigation className="main-navigation" />
+      <Navigation className="main-nav" />
       <Outlet />
       <Settings className="main-settings" />
       <Footer className="main-footer" />

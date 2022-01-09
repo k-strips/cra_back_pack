@@ -1,22 +1,33 @@
-@import "./base";
-@import "./components";
-@import "./pages";
+// utils
+@import "./utils/functions";
+@import "./utils/variables";
+@import "./utils/mixins";
 
 // base
-@import "base/reset";
-@import "base/typography";
+@import "./base/base";
+@import "./base/reset";
+@import "./base/typography";
 
-// layout
+// // components
+@import "./components/buttons";
+@import "./components/footer";
+@import "./components/form";
+@import "./components/inputs";
+@import "./components/navigation";
+@import "./components/noteThumbnail";
+@import "./components/pageThumbnail";
+@import "./components/settings";
+
+// // layout
 @import "./layout/appLayout";
 @import "./layout/unauthLayout";
 
-// pages
-@import "pages/note";
-@import "pages/notes";
-@import "pages/page";
-@import "pages/pages";
+// // pages
+@import "./pages/note";
+@import "./pages/notes";
+@import "./pages/page";
+@import "./pages/pages";
 
-// utils
-@import "utils/functions";
-@import "utils/variables";
-@import "utils/mixins";
+// theme
+@import "./theme/lightTheme.scss";
+@import "./theme/darkTheme.scss";

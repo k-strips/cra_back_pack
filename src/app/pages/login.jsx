@@ -6,7 +6,7 @@ import { LOGIN_USER, SIGNUP_USER } from "../graphql/mutation";
 import { useMutation } from "@apollo/client";
 
 // local components import
-import { Form, Input, Button } from "../components";
+import { Form, Input, Button, Card } from "../components";
 import { useForm } from "../hooks";
 
 let initialState = {
@@ -64,8 +64,8 @@ const Login = () => {
   console.log(loggedInUserData);
 
   return (
-    <div className="login--card">
-      <section>
+    <Card className="login--card">
+      <section id="login--card__right">
         <hgroup>
           <h3>back pack</h3>
           <h5>back pack... your back won't hurt</h5>
@@ -86,7 +86,7 @@ const Login = () => {
           </span>
         </p>
       </section>
-      <section>
+      <section id="login--card__left">
         <Form onSubmit={handleSubmit}>
           {isSignup && (
             <>
@@ -141,7 +141,7 @@ const Login = () => {
           </Button>
         </Form>
       </section>
-    </div>
+    </Card>
   );
 };
 

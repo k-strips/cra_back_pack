@@ -1,0 +1,14 @@
+// @import "../utils/variables";
+
+%button {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  // color: $white;
+  padding: 1rem 2rem;
+  transition-duration: 0.4s;
+  text: {
+    align: center;
+    decoration: none;
+  }
+}
