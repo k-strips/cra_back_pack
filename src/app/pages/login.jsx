@@ -10,8 +10,7 @@ import { Form, Input, Button, Card } from "../components";
 import { useForm } from "../hooks";
 
 let initialState = {
-  firstName: "",
-  lastName: "",
+  fullName: "",
   username: "",
   phone: "",
   email: "",
@@ -82,7 +81,9 @@ const Login = () => {
               setIsSignup(!isSignup);
             }}
           >
-            <small>{!isSignup ? `signup` : `login`}</small>
+            <small style={{ cursor: "pointer" }}>
+              {!isSignup ? `signup` : `login`}
+            </small>
           </span>
         </p>
       </section>
@@ -91,17 +92,10 @@ const Login = () => {
           {isSignup && (
             <>
               <Input
-                label="first name"
+                label="full name"
                 type="text"
-                name="firstName"
-                value={values.firstName}
-                onChange={handleChange}
-              />
-              <Input
-                label="last name"
-                type="text"
-                name="lastName"
-                value={values.lastName}
+                name="fullName"
+                value={values.fullName}
                 onChange={handleChange}
               />
               <Input

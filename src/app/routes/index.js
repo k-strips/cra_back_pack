@@ -1,7 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 
 // local components import
-import { Login, Page, Pages, Note, Notes, NoMatch } from "../pages";
+import {
+  Login,
+  Page,
+  Pages,
+  Note,
+  Notes,
+  NoMatch,
+  Dashboard,
+  Todo,
+} from "../pages";
 import { AppLayout, UnauthLayout } from "../layout";
 
 let routes = [
@@ -15,6 +24,14 @@ let routes = [
     element: <Pages />,
     nested: { path: ":pageId", element: <Page /> },
   },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "todos",
+    element: <Todo />,
+  },
 ];
 
 function AppRoutes() {
@@ -27,8 +44,8 @@ function AppRoutes() {
       </Route>
       <Route element={<AppLayout />}>
         {routes.map((m, i) => (
-          <Route key={i} path={m.path} element={m.element}>
-            <Route path={m.nested.path} element={m.nested.element} />
+          <Route key={i} path={m?.path} element={m?.element}>
+            <Route path={m?.nested?.path} element={m?.nested?.element} />
           </Route>
         ))}
       </Route>

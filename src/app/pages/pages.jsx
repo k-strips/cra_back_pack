@@ -12,7 +12,7 @@ const pagesData = [
 const Pages = () => {
   const [pages, setPages] = useState(pagesData);
   return (
-    <div className="page">
+    <div className="page-content">
       {pages.map((p, i) => (
         <PageThumbnail page={p} key={i} />
       ))}

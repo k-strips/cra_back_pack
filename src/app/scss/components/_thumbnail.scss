@@ -1,0 +1,50 @@
+.thumbnail {
+  @include flexContainer(column nowrap);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: $white;
+  padding: 0.4rem;
+  position: relative;
+  &--title {
+    margin: 0.5rem;
+    position: absolute;
+    top: 10%;
+    align-self: center;
+    background: $white;
+  }
+  &--note {
+    height: 40vh;
+    border-radius: 0 12px 12px 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &--page {
+    height: 40vh;
+  }
+  &--todo {
+    @include widthHeight(100%, 15vh);
+    justify-content: center;
+  }
+}
+
+// tablet view
+@media only screen and (min-width: 768px) {
+}
+
+// desktop view
+@media only screen and (min-width: 992px) {
+  .thumbnail {
+    &--note {
+      height: 50vh;
+      border-radius: 0 12px 12px 0;
+    }
+    &--page {
+      height: 50vh;
+    }
+    &--todo {
+      border: {
+        left: solid 2px $red;
+      }
+    }
+  }
+}

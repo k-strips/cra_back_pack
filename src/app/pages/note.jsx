@@ -16,9 +16,10 @@ const Note = () => {
   const params = useParams();
   return (
     <div className="note-content">
-      {pages?.map((p, i) => (
+      {/* {pages?.map((p, i) => (
         <PageThumbnail key={i} page={p} />
-      ))}
+      ))} */}
+      note {params.noteId}
     </div>
   );
 };
